@@ -6,21 +6,22 @@
         }else{
             hashedpassword = (new jsSHA(password,'ASCII')).getHash('SHA-384','HEX');
             var postdata = {
-                'name': 'admin',
-                'password': hashedpassword
+                "name": "admin",
+                "password": hashedpassword
             };
             $.ajax({
                 url: '/admin/loginreq',
                 type: 'POST',
                 data: JSON.stringify(postdata),
-                complete: function(result){
-                    if(result.code == false){
-                        alert("FAILED TO LOGIN");
-                        $('#admin_password').val('');
-                    }
-                },
                 dataType: 'json',
-                contentType: 'text/json'
+                contentType: 'text/json',
+                success: function(result){
+                    location.href=result.msg;
+                },
+                error: function(result){
+                    alert("FAILED TO LOGIN");
+                    $('#admin_password').val('');
+                }
             });
         }
      });

@@ -39,7 +39,7 @@ object Auth extends Controller {
       (json \ "password").asOpt[String] match {
         case Some(p) => {
           if(hashedPassword == p){
-            Redirect(controllers.admin.routes.Application.index).withSession("user" -> "admin")
+            Ok(rts(true,controllers.admin.routes.Application.index.url)).withSession("user" -> "admin")
           }else{
             BadRequest(rts(false,"invalid password"))
           }
