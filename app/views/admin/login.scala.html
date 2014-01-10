@@ -2,9 +2,14 @@
 <html>
     <head>
         <title>TOST - adming login -</title>
+        <script src="@routes.Assets.at("javascripts/jquery.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/jssha/sha512.js")" type="text/javascript"></script>
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/admin/login.css")">
     </head>
     <body>
         <p>Admin Password</p>
         <input id="admin_password" type="password" name="adminpassword" />
+        <button id="login_button">Login</button>
     </body>
+    <script src="@routes.Assets.at("javascripts/admin/login.js")" type="text/javascript"></script>
 </html>
